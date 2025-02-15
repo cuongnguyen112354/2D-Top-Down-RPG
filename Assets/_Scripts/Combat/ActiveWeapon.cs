@@ -8,7 +8,8 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
 
     private PlayerControls playerControls;
 
-    private bool attackButtonDown, isAttacking = false;
+    private float timeBetweenAttacks;
+    private bool acttackButtonDown, isAttacking = false;
 
     protected override void Awake()
     {
@@ -25,6 +26,8 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
     {
         playerControls.Combat.Attack.started += _ => StartAttacking();
         playerControls.Combat.Attack.canceled += _ => StopAttacking();
+
+        AttackCooldown();
     }
 
     private void Update()
@@ -35,7 +38,9 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
     public void NewWeapon(MonoBehaviour newWeapon)
     {
         CurrentActiveWeapon = newWeapon;
-        isAttacking = false;
+
+        AttackCooldown();
+        timeBetweenAttacks = (CurrentActiveWeapon as IWeapon).GetWeaponInfo().weaponCooldown;
     }
 
     public void WeaponNull()
@@ -43,26 +48,34 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
         CurrentActiveWeapon = null;
     }
 
-    public void ToggleIsAttacking(bool value)
+    private void AttackCooldown()
     {
-        isAttacking = value;
+        isAttacking = true;
+        StopAllCoroutines();
+        StartCoroutine(TimeBetweenAttacksRoutine());
+    }
+
+    private IEnumerator TimeBetweenAttacksRoutine()
+    {
+        yield return new WaitForSeconds(timeBetweenAttacks);
+        isAttacking = false;
     }
 
     private void StartAttacking()
     {
-        attackButtonDown = true;
+        acttackButtonDown = true;
     }
-    // Trong khoảng thời gian này nó vẫn tiếp tục chạy cho tới khi isAttacking = false được set
+
     private void StopAttacking()
     {
-        attackButtonDown = false;
+        acttackButtonDown = false;
     }
 
     private void Attack()
     {
-        if (attackButtonDown && !isAttacking)
+        if (acttackButtonDown && !isAttacking)
         {
-            isAttacking = true;
+            AttackCooldown();
             (CurrentActiveWeapon as IWeapon).Attack();
         }
     }

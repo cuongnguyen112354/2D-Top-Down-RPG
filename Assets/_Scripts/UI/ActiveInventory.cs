@@ -18,16 +18,21 @@ public class ActiveInventory : MonoBehaviour
         playerControls.Inventory.Enable();
     }
 
+    private void OnDisable()
+    {
+        playerControls.Inventory.Disable();
+    }
+
     private void Start()
     {
-        playerControls.Inventory.Keyboard.performed += ctx => ToggleActiveSlot((int)ctx.ReadValue<float>());
+        ToggleActiveHighlight(activeSlotIndexNum);
 
-        ToggleActiveHighlight(0);
+        playerControls.Inventory.Keyboard.performed += ctx => ToggleActiveSlot((int)ctx.ReadValue<float>());
     }
 
     private void ToggleActiveSlot(int numValue)
     {
-        ToggleActiveHighlight(numValue - 1);
+        ToggleActiveHighlight(numValue);
     }
 
     private void ToggleActiveHighlight(int indexNum)
@@ -58,6 +63,7 @@ public class ActiveInventory : MonoBehaviour
 
         GameObject newWeapon = Instantiate(weaponToSpawn, ActiveWeapon.Instance.transform.position, Quaternion.identity);
 
+        ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 0, 0);
         newWeapon.transform.parent = ActiveWeapon.Instance.transform;
 
         ActiveWeapon.Instance.NewWeapon(newWeapon.GetComponent<MonoBehaviour>());

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Sword : MonoBehaviour, IWeapon
 {
     [SerializeField] private GameObject slashAnimaPrefab;
-    [SerializeField] private float swordAttackCD = 0.5f;
+    [SerializeField] private WeaponInfo weaponInfo;
 
     private Animator animator;
 
@@ -29,19 +29,17 @@ public class Sword : MonoBehaviour, IWeapon
         MouseFollowWithOffset();
     }
 
+    public WeaponInfo GetWeaponInfo()
+    {
+        return weaponInfo;
+    }
+
     public void Attack()
     {
         animator.SetTrigger("Attack");
         weaponCollider.gameObject.SetActive(true);
         slashAnima = Instantiate(slashAnimaPrefab, slashAnimaSpawnPoint.position, Quaternion.identity);
         slashAnima.transform.parent = this.transform.parent;
-        StartCoroutine(AttackCDRoutine());
-    }
-
-    private IEnumerator AttackCDRoutine()
-    {
-        yield return new WaitForSeconds(swordAttackCD);
-        ActiveWeapon.Instance.ToggleIsAttacking(false);
     }
 
     public void DoneAttackingAnimEvent()

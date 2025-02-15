@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : Singleton<PlayerController>
 {
-    public bool FacingLeft { get => facingLeft;}
+    public bool FacingLeft { get => facingLeft; }
 
     [SerializeField] private float moveSpeed = 3f;
     [SerializeField] private float dashSpeed = 4f;

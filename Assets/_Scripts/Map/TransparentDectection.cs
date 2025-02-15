@@ -12,7 +12,7 @@ public class TransparentDectection : MonoBehaviour
     private Tilemap tilemap;
     private SpriteRenderer spriteRenderer;
 
-    private void Awake()
+    private void Start()
     {
         tilemap = GetComponent<Tilemap>();
         spriteRenderer = GetComponent<SpriteRenderer>();
