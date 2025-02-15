@@ -9,7 +9,7 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
     private PlayerControls playerControls;
 
     private float timeBetweenAttacks;
-    private bool acttackButtonDown, isAttacking = false;
+    private bool attackButtonDown, isAttacking = false;
 
     protected override void Awake()
     {
@@ -63,17 +63,17 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
 
     private void StartAttacking()
     {
-        acttackButtonDown = true;
+        attackButtonDown = true;
     }
 
     private void StopAttacking()
     {
-        acttackButtonDown = false;
+        attackButtonDown = false;
     }
 
     private void Attack()
     {
-        if (acttackButtonDown && !isAttacking)
+        if (attackButtonDown && !isAttacking && CurrentActiveWeapon)
         {
             AttackCooldown();
             (CurrentActiveWeapon as IWeapon).Attack();

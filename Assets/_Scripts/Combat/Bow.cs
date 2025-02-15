@@ -8,7 +8,7 @@ public class Bow : MonoBehaviour, IWeapon
     [SerializeField] private GameObject arrowPrefab;
     [SerializeField] private Transform arrowSpawnPoint;
 
-    readonly int FIRE_HASH = Animator.StringToHash("Fire");
+    readonly int ATTACK_HASH = Animator.StringToHash("Attack");
 
     private Animator animator;
 
@@ -19,9 +19,14 @@ public class Bow : MonoBehaviour, IWeapon
 
     public void Attack()
     {
-        animator.SetTrigger(FIRE_HASH);
+        animator.SetTrigger(ATTACK_HASH);
         GameObject newArrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, ActiveWeapon.Instance.transform.rotation);
         newArrow.GetComponent<Projectile>().UpdateWeaponInfo(weaponInfo);
+    }
+
+    public void DoneAttackingAnimaEvent()
+    {
+        animator.SetTrigger(ATTACK_HASH);
     }
 
     public WeaponInfo GetWeaponInfo()

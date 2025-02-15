@@ -18,16 +18,11 @@ public class ActiveInventory : MonoBehaviour
         playerControls.Inventory.Enable();
     }
 
-    private void OnDisable()
-    {
-        playerControls.Inventory.Disable();
-    }
-
     private void Start()
     {
-        ToggleActiveHighlight(activeSlotIndexNum);
-
         playerControls.Inventory.Keyboard.performed += ctx => ToggleActiveSlot((int)ctx.ReadValue<float>());
+
+        ToggleActiveHighlight(0);
     }
 
     private void ToggleActiveSlot(int numValue)
@@ -52,7 +47,7 @@ public class ActiveInventory : MonoBehaviour
         if (ActiveWeapon.Instance.CurrentActiveWeapon != null)
             Destroy(ActiveWeapon.Instance.CurrentActiveWeapon.gameObject);
 
-        if (!transform.GetChild(activeSlotIndexNum).GetComponentInChildren<InventorySlot>())
+        if (transform.GetChild(activeSlotIndexNum).GetComponentInChildren<InventorySlot>().GetWeaponInfo() == null)
         {
             ActiveWeapon.Instance.WeaponNull();
             return;

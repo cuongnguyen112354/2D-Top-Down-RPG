@@ -21,6 +21,10 @@ public class Projectile : MonoBehaviour
         DetectFireDistance();
     }
 
+    public void UpdateWeaponInfo(WeaponInfo weaponInfo){
+        this.weaponInfo = weaponInfo;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         EnemyHealth enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
@@ -28,8 +32,7 @@ public class Projectile : MonoBehaviour
 
         if (!other.isTrigger && (enemyHealth || indestructible))
         {
-            enemyHealth?.TakeDamage(weaponInfo.weaponDamage);
-            Instantiate(particleOnHitPrefabVFX, transform.position, Quaternion.identity);
+            Instantiate(particleOnHitPrefabVFX, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }
@@ -37,18 +40,11 @@ public class Projectile : MonoBehaviour
     private void DetectFireDistance()
     {
         if (Vector3.Distance(transform.position, startPosition) > weaponInfo.weaponRange)
-        {
             Destroy(gameObject);
-        }
-    }
-
-    public void UpdateWeaponInfo(WeaponInfo weaponInfo)
-    {
-        this.weaponInfo = weaponInfo;
     }
 
     private void MoveProjectile()
     {
-        transform.Translate(Vector2.right * Time.deltaTime * moveSpeed);
+        transform.Translate(Vector3.right * Time.deltaTime * moveSpeed);
     }
 }
