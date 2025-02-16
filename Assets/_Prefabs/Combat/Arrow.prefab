@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3044321351555699032}
   - component: {fileID: 1789358576596486876}
+  - component: {fileID: 1360360704903181597}
   - component: {fileID: 5471141031537146483}
   - component: {fileID: 6057815323382893892}
   - component: {fileID: 4702971846210429891}
@@ -89,6 +90,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!210 &1360360704903181597
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8238763798316630267}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!50 &5471141031537146483
 Rigidbody2D:
   serializedVersion: 4
@@ -205,7 +218,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Time: 0.12
   m_PreviewTimeScale: 1
   m_Parameters:
@@ -301,5 +314,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9db5e8e0e0f6f145b182be50982f4d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 22
+  moveSpeed: 20
   particleOnHitPrefabVFX: {fileID: 790547466825682057, guid: 77c68fff736dda148a3cdc9c0399db5e, type: 3}

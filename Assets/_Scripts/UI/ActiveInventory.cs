@@ -18,6 +18,11 @@ public class ActiveInventory : MonoBehaviour
         playerControls.Inventory.Enable();
     }
 
+    private void OnDisable()
+    {
+        playerControls.Inventory.Disable();
+    }
+
     private void Start()
     {
         playerControls.Inventory.Keyboard.performed += ctx => ToggleActiveSlot((int)ctx.ReadValue<float>());
