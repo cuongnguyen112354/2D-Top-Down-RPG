@@ -422,29 +422,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 965404548810098659, guid: bf5369de5fffaec48b5ef43b287d53e9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.33999127
-      objectReference: {fileID: 0}
-    - target: {fileID: 965404548810098659, guid: bf5369de5fffaec48b5ef43b287d53e9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2938874948526839731, guid: bf5369de5fffaec48b5ef43b287d53e9, type: 3}
-      propertyPath: m_Follow
-      value: 
-      objectReference: {fileID: 1149009800}
     - target: {fileID: 2938874948526839731, guid: bf5369de5fffaec48b5ef43b287d53e9, type: 3}
       propertyPath: m_ChildCameras.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3479713157596701723, guid: bf5369de5fffaec48b5ef43b287d53e9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.34
-      objectReference: {fileID: 0}
-    - target: {fileID: 3479713157596701723, guid: bf5369de5fffaec48b5ef43b287d53e9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.27
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6355633107939214129, guid: bf5369de5fffaec48b5ef43b287d53e9, type: 3}
       propertyPath: m_Name
@@ -11556,11 +11536,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1351537886509912073, guid: a89ae589fd223904186478dcd7d134a8, type: 3}
   m_PrefabInstance: {fileID: 84634096}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1149009800 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7684660561821059812, guid: bceb47c58df02c54da87db974e90e186, type: 3}
-  m_PrefabInstance: {fileID: 1194761787}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1194761787
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15336,6 +15311,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1639319280765306457, guid: 3ca2f4f5660a40e46b8ccbe796c5102d, type: 3}
+      propertyPath: m_ImpulseDefinition.m_TimeEnvelope.m_SustainTime
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1813485952544471919, guid: 3ca2f4f5660a40e46b8ccbe796c5102d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

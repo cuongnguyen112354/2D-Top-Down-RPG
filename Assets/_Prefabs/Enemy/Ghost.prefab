@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 729759901798703294}
   - component: {fileID: 1194986415395102796}
+  - component: {fileID: -5203382922761163790}
   - component: {fileID: 5666502593581462444}
   - component: {fileID: 1936650805385807413}
   - component: {fileID: 6428891193190450978}
@@ -94,6 +95,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!210 &-5203382922761163790
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536976244738934227}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!50 &5666502593581462444
 Rigidbody2D:
   serializedVersion: 4
@@ -253,6 +266,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 2409157297415370418, guid: 3c9dbbd62e6456a4fa5b5dc483bfa2b9, type: 3}
+  bulletMoveSpeed: 6
+  burstCount: 5
+  projectilesPerBurst: 6
+  angleSpread: 167
+  startingDistance: 0.1
+  timeBetweenBursts: 0.3
+  restTime: 0.5
 --- !u!1 &9006497841902401351
 GameObject:
   m_ObjectHideFlags: 0

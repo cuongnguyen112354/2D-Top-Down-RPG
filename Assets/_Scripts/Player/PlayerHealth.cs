@@ -36,6 +36,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (!canTakeDamage) return;
 
+        ScreenShakeManager.Instance.ShakeScreen();
         knockBack.GetKnockBack(hitTransform, knockBackThrustAmount);
         StartCoroutine(flash.FlashRoutine());
         canTakeDamage = false;

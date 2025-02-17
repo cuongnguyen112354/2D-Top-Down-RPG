@@ -187,6 +187,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cc509220b5d6084b8d939ba89541f87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roamChangeDirFloat: 2
+  enemyType: {fileID: 0}
+  attackRange: 5
+  attackCooldown: 2
+  stopMovingWhileAttacking: 0
 --- !u!114 &5721742544717450370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,6 +219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   deathVFXPrefab: {fileID: 790547466825682057, guid: 145be47083a5d8642bf423d1c2039aaa, type: 3}
+  knockBackThrust: 15
 --- !u!114 &6683594658377100327
 MonoBehaviour:
   m_ObjectHideFlags: 0
