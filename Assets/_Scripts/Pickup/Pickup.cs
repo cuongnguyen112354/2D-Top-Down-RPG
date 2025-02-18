@@ -7,6 +7,9 @@ public class PickUp : MonoBehaviour
     [SerializeField] private float pickupDistance = 5f;
     [SerializeField] private float accelartionRate = .2f;
     [SerializeField] private float moveSpeed = 3f;
+    [SerializeField] private AnimationCurve animaCurve;
+    [SerializeField] private float heightY = 1.5f;
+    [SerializeField] private float popDuration = 1f;
 
     private Vector3 moveDir;
     private Rigidbody2D rb;
@@ -14,6 +17,11 @@ public class PickUp : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
+        StartCoroutine(AnimaCurveSpawnRoutine());
     }
 
     private void Update()
@@ -41,5 +49,27 @@ public class PickUp : MonoBehaviour
     {
         if (other.gameObject.GetComponent<PlayerController>())
             Destroy(gameObject);
+    }
+
+    private IEnumerator AnimaCurveSpawnRoutine()
+    {
+        Vector2 startPoint = transform.position;
+        float randomX = transform.position.x + Random.Range(-2f, 2f);
+        float randomY = transform.position.y + Random.Range(-2f, 2f);
+
+        Vector2 endPoint = new Vector2(randomX, randomY);
+
+        float timePassed = 0f;
+
+        while(timePassed < popDuration)
+        {
+            timePassed += Time.deltaTime;
+            float linearT = timePassed / popDuration;
+            float heightT = animaCurve.Evaluate(linearT);
+            float height = Mathf.Lerp(0f, heightY, heightT);
+
+            transform.position = Vector2.Lerp(startPoint, endPoint, linearT) + new Vector2(0f, height);
+            yield return null;
+        }
     }
 }

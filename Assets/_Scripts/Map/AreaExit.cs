@@ -39,6 +39,8 @@ public class AreaExit : MonoBehaviour
         Projectile[] projectiles = FindObjectsOfType<Projectile>();
 
         foreach (EnemyPathFinding enemy in enemies)
+            // Shooter enemyShooter = enemy.gameObject.GetComponent<Shooter>();
+
             enemy.enabled = false;
         
         foreach (Projectile projectile in projectiles)
