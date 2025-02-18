@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
+    private enum PickupType
+    {
+        GoldCoin,
+        HealthGlobe,
+        StaminaGlobe
+    }
+
+    [SerializeField] private PickupType pickupType;
     [SerializeField] private float pickupDistance = 5f;
     [SerializeField] private float accelartionRate = .2f;
     [SerializeField] private float moveSpeed = 3f;
@@ -48,7 +56,10 @@ public class PickUp : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.GetComponent<PlayerController>())
+        {
+            DetectPickupType();
             Destroy(gameObject);
+        }
     }
 
     private IEnumerator AnimaCurveSpawnRoutine()
@@ -70,6 +81,23 @@ public class PickUp : MonoBehaviour
 
             transform.position = Vector2.Lerp(startPoint, endPoint, linearT) + new Vector2(0f, height);
             yield return null;
+        }
+    }
+
+    private void DetectPickupType()
+    {
+        switch (pickupType)
+        {
+            case PickupType.GoldCoin:
+                Debug.Log("GoldCoin");
+                break;
+            case PickupType.HealthGlobe:
+                PlayerHealth.Instance.HealPlayer();
+                Debug.Log("HealthGlobe");
+                break;
+            case PickupType.StaminaGlobe:
+                Debug.Log("StaminaGlobe");
+                break;
         }
     }
 }

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6708321352646713017
+--- !u!1 &203708389801811103
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1537926402554466658}
-  - component: {fileID: 3062892948223020567}
-  - component: {fileID: 1641418829271100412}
-  - component: {fileID: 8374555391933394285}
-  - component: {fileID: 5086238762559017649}
+  - component: {fileID: 8478416701095281004}
+  - component: {fileID: 3564411228309550133}
+  - component: {fileID: 2559394156259573621}
+  - component: {fileID: 7426669078582656129}
+  - component: {fileID: -9216234372025240889}
+  - component: {fileID: -2181908995445214769}
   m_Layer: 0
-  m_Name: Crate 2
+  m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1537926402554466658
+--- !u!4 &8478416701095281004
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6708321352646713017}
+  m_GameObject: {fileID: 203708389801811103}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.244325, y: -3.1234848, z: 0}
+  m_LocalPosition: {x: 3.5356212, y: 5.0530076, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &3062892948223020567
+--- !u!212 &3564411228309550133
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6708321352646713017}
+  m_GameObject: {fileID: 203708389801811103}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -55,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 319ad9eae0cb6f74b943451b1a990972, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ebd3046f319213b4cb880b4133d0bab7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7da473d42b2d4b14a87da5a919764eca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -87,13 +88,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1641418829271100412
-BoxCollider2D:
+--- !u!50 &2559394156259573621
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6708321352646713017}
+  m_GameObject: {fileID: 203708389801811103}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
+--- !u!58 &7426669078582656129
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203708389801811103}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -116,47 +144,63 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.009660363, y: 0.049259067}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.4877322, y: 0.19505781}
-    oldSize: {x: 2, y: 2}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0, y: -0.0017564297}
   serializedVersion: 2
-  m_Size: {x: 1.5841672, y: 0.50406575}
-  m_EdgeRadius: 0
---- !u!114 &8374555391933394285
+  m_Radius: 0.18750978
+--- !u!114 &-9216234372025240889
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6708321352646713017}
+  m_GameObject: {fileID: 203708389801811103}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c558e22c1e401c4cb78a690d60860d4, type: 3}
+  m_Script: {fileID: 11500000, guid: 70d32d978e3a0ce46a1ba7055c7672e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyVFX: {fileID: 790547466825682057, guid: c09afc54497c5cc46bebed3b563f22bc, type: 3}
---- !u!114 &5086238762559017649
+  pickupType: 1
+  pickupDistance: 3
+  accelartionRate: 0.5
+  moveSpeed: 10
+  animaCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1.044177
+      value: 0.0011173844
+      inSlope: -1.55539
+      outSlope: -1.55539
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.029166732
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  heightY: 1.5
+  popDuration: 0.5
+--- !u!114 &-2181908995445214769
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6708321352646713017}
+  m_GameObject: {fileID: 203708389801811103}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd610bc33e7bc9c4498a4ca85d159506, type: 3}
+  m_Script: {fileID: 11500000, guid: 6afd07a1d0f412e418970a069e409dd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goldCoin: {fileID: 203708389801811103, guid: df16cc71370c3c44fbfb1549aa5cbc26, type: 3}
-  healthGlobe: {fileID: 203708389801811103, guid: cf51f7a2de7b45f4f9b285cd59f5fa44, type: 3}
-  staminaGlobe: {fileID: 203708389801811103, guid: c372ddd9f486ad3489f0e8468059c37b, type: 3}

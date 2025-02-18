@@ -147,4 +147,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd610bc33e7bc9c4498a4ca85d159506, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goldCoinPrefab: {fileID: 203708389801811103, guid: df16cc71370c3c44fbfb1549aa5cbc26, type: 3}
+  goldCoin: {fileID: 203708389801811103, guid: df16cc71370c3c44fbfb1549aa5cbc26, type: 3}
+  healthGlobe: {fileID: 203708389801811103, guid: cf51f7a2de7b45f4f9b285cd59f5fa44, type: 3}
+  staminaGlobe: {fileID: 203708389801811103, guid: c372ddd9f486ad3489f0e8468059c37b, type: 3}
