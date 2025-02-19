@@ -15,6 +15,11 @@ public class Shooter : MonoBehaviour, IEnemy
 
     private bool isShooting = false;
 
+    public void StopAttack()
+    {
+        StopAllCoroutines();
+    }
+
     public void Attack()
     {
         if (!isShooting)
