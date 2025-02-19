@@ -10,6 +10,8 @@ public class PlayerHealth : Singleton<PlayerHealth>
     [SerializeField] private float knockBackThrustAmount = 10f;
     [SerializeField] private float damageRecoveryTime = 1f;
 
+    const string HEALTH_SLIDER_TEXT = "Heart Slider";
+
     private Slider healthSlider;
     private int currentHealth;
     private bool canTakeDamage = true;
@@ -55,7 +57,6 @@ public class PlayerHealth : Singleton<PlayerHealth>
         StartCoroutine(flash.FlashRoutine());
         canTakeDamage = false;
         currentHealth -= damageAmount;
-        Debug.Log("Current Health: " + currentHealth);
         StartCoroutine(DamageRecoveryRoutine());
         UpdateHealthSlider();
         CheckIfPlayerDeath();
@@ -70,7 +71,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
     private void UpdateHealthSlider()
     {
         if (healthSlider == null)
-            healthSlider = GameObject.Find("Heart Slider").GetComponent<Slider>();
+            healthSlider = GameObject.Find(HEALTH_SLIDER_TEXT).GetComponent<Slider>();
         
         healthSlider.maxValue = maxHealth;
         healthSlider.value = currentHealth;
