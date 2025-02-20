@@ -165,7 +165,7 @@ MonoBehaviour:
   pickupType: 1
   pickupDistance: 3
   accelartionRate: 0.5
-  moveSpeed: 10
+  moveSpeed: 20
   animaCurve:
     serializedVersion: 2
     m_Curve:

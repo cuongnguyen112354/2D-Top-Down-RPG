@@ -43,7 +43,9 @@ public class AreaExit : MonoBehaviour
             enemy.enabled = false;
 
             Shooter shooter = enemy.gameObject.GetComponent<Shooter>();
-            shooter.StopAttack();
+            
+            if (shooter)
+                shooter.StopAttack();
         }
         
         foreach (Projectile projectile in projectiles)

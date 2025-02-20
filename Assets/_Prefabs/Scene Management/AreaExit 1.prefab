@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8014612586408483344}
   - component: {fileID: 9046893548276711320}
   m_Layer: 0
-  m_Name: AreaExit
+  m_Name: AreaExit 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8838756374931378277}
-  - {fileID: 4558377819483103230}
+  - {fileID: 482155444262979992}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &8014612586408483344
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionName: 
---- !u!1001 &4765516387162457178
+--- !u!1001 &8921888474286559804
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -149,7 +149,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2408873496184257889, guid: 73400a17aec89f549be5becbddaad9cf, type: 3}
       propertyPath: m_Name
-      value: Portal VFX
+      value: Portal 1 VFX
       objectReference: {fileID: 0}
     - target: {fileID: 9034255618089704356, guid: 73400a17aec89f549be5becbddaad9cf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -196,8 +196,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73400a17aec89f549be5becbddaad9cf, type: 3}
---- !u!4 &4558377819483103230 stripped
+--- !u!4 &482155444262979992 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9034255618089704356, guid: 73400a17aec89f549be5becbddaad9cf, type: 3}
-  m_PrefabInstance: {fileID: 4765516387162457178}
+  m_PrefabInstance: {fileID: 8921888474286559804}
   m_PrefabAsset: {fileID: 0}

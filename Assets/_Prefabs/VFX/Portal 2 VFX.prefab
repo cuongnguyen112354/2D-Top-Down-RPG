@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3432322055426043737}
   - component: {fileID: 1803991428296668507}
   m_Layer: 0
-  m_Name: Portal VFX
+  m_Name: Portal 2 VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4777,7 +4777,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 36c511f2c254aad4b9987bf7535867c9, type: 2}
+  - {fileID: 2100000, guid: 67d621b9ea15cb34e9a67559c927c91e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

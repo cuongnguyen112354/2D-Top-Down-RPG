@@ -20614,6 +20614,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 183307823813507988, guid: e49a006ccc082b04da23a93103c955ee, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 183307823813507988, guid: e49a006ccc082b04da23a93103c955ee, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3152405316195990588, guid: e49a006ccc082b04da23a93103c955ee, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -20955,7 +20963,7 @@ GameObject:
   - component: {fileID: 8014612586543883772}
   - component: {fileID: 9046893548143394932}
   m_Layer: 0
-  m_Name: AreaExit
+  m_Name: AreaExit 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21233,8 +21241,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 965404548810098659, guid: bf5369de5fffaec48b5ef43b287d53e9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.545453
+      objectReference: {fileID: 0}
+    - target: {fileID: 965404548810098659, guid: bf5369de5fffaec48b5ef43b287d53e9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2938874948526839731, guid: bf5369de5fffaec48b5ef43b287d53e9, type: 3}
       propertyPath: m_ChildCameras.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3479713157596701723, guid: bf5369de5fffaec48b5ef43b287d53e9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3479713157596701723, guid: bf5369de5fffaec48b5ef43b287d53e9, type: 3}
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6355633107939214129, guid: bf5369de5fffaec48b5ef43b287d53e9, type: 3}
@@ -26204,7 +26228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Scene 2
-  sceneTransitionName: Position 2
+  sceneTransitionName: Position 2.1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
