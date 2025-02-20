@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerController : Singleton<PlayerController>
 {
@@ -41,11 +40,18 @@ public class PlayerController : Singleton<PlayerController>
         playerControls.Enable();
     }
 
+    private void OnDisable()
+    {
+        playerControls.Disable();
+    }
+
     private void Start()
     {
         playerControls.Combat.Dash.performed += _ => Dash();
 
         startingMoveSpeed = moveSpeed;
+
+        ActiveInventory.Instance.EquipStartingWeapon();
     }
 
     void Update()
@@ -74,7 +80,8 @@ public class PlayerController : Singleton<PlayerController>
 
     private void Move()
     {
-        if (knockBack.GettingKnockedBack) return;
+        if (knockBack.GettingKnockedBack || PlayerHealth.Instance.isDead)
+            return;
 
         rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
     }

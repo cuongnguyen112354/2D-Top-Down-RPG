@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : Singleton<PlayerHealth>
 {
+    public bool isDead { get; private set; }
+
     [SerializeField] private int maxHealth = 3;
     [SerializeField] private float knockBackThrustAmount = 10f;
     [SerializeField] private float damageRecoveryTime = 1f;
 
     const string HEALTH_SLIDER_TEXT = "Heart Slider";
+    const string TOWN_TEXT = "Scene 1";
+    readonly int DEADTH_HASH = Animator.StringToHash("Death");
 
     private Slider healthSlider;
     private int currentHealth;
@@ -27,6 +31,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
 
     private void Start()
     {
+        isDead = false;
         currentHealth = maxHealth;
 
         UpdateHealthSlider();
@@ -79,10 +84,20 @@ public class PlayerHealth : Singleton<PlayerHealth>
 
     private void CheckIfPlayerDeath()
     {
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && !isDead)
         {
+            isDead = true;
+            Destroy(ActiveWeapon.Instance.gameObject);
             currentHealth = 0;
-            Debug.Log("Player Death");
+            GetComponent<Animator>().SetTrigger(DEADTH_HASH);
+            StartCoroutine(DeadthLoadSceneRoutine());
         }
+    }
+
+    private IEnumerator DeadthLoadSceneRoutine()
+    {
+        yield return new WaitForSeconds(2f);
+        Destroy(gameObject);
+        SceneManager.LoadScene(TOWN_TEXT);
     }
 }
