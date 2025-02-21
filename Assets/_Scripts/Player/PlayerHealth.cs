@@ -87,9 +87,12 @@ public class PlayerHealth : Singleton<PlayerHealth>
     {
         if (currentHealth <= 0 && !isDead)
         {
-            isDead = true;
-            Destroy(ActiveWeapon.Instance.gameObject);
             currentHealth = 0;
+            isDead = true;
+            canTakeDamage = false;
+            AudioManager.Instance.GameOverSFX();
+            Destroy(ActiveWeapon.Instance.gameObject);
+            GameManager.Instance.DisableObjects();
             GetComponent<Animator>().SetTrigger(DEADTH_HASH);
             StartCoroutine(DeadthLoadSceneRoutine());
         }

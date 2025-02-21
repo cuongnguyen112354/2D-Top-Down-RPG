@@ -16,6 +16,7 @@ public class TransparentDectection : MonoBehaviour
     {
         tilemap = GetComponent<Tilemap>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        StopAllCoroutines();
     }
 
     private void OnTriggerEnter2D(Collider2D other)

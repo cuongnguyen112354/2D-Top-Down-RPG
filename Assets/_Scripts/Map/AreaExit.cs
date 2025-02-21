@@ -15,7 +15,7 @@ public class AreaExit : MonoBehaviour
     {
         if (other.gameObject.GetComponent<PlayerController>())
         {
-            DisableObjects();
+            GameManager.Instance.DisableObjects();
             SceneManagement.Instance.SetTransitionName(sceneTransitionName);
             UIFade.Instance.FadeToBlack();
             StartCoroutine(LoadSceneRoutine());
@@ -31,24 +31,5 @@ public class AreaExit : MonoBehaviour
         }
 
         SceneManager.LoadScene(sceneToLoad);
-    }
-    
-    private void DisableObjects()
-    {
-        EnemyPathFinding[] enemies = FindObjectsOfType<EnemyPathFinding>();
-        Projectile[] projectiles = FindObjectsOfType<Projectile>();
-
-        foreach (EnemyPathFinding enemy in enemies)
-        {
-            enemy.enabled = false;
-
-            Shooter shooter = enemy.gameObject.GetComponent<Shooter>();
-            
-            if (shooter)
-                shooter.StopAttack();
-        }
-        
-        foreach (Projectile projectile in projectiles)
-            projectile.enabled = false;
     }
 }

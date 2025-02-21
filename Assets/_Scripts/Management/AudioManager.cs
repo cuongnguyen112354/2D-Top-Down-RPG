@@ -6,9 +6,9 @@ public class AudioManager : Singleton<AudioManager>
 {
     [Header("----- Audio Sources -----")]
     [SerializeField] private AudioSource musicSource;
-    [SerializeField] private AudioSource AvtiveInventorySFXSource;
-    [SerializeField] private AudioSource CombatSFXSource;
-    [SerializeField] private AudioSource PickUpSFXSource;
+    [SerializeField] private AudioSource avtiveInventorySFXSource;
+    [SerializeField] private AudioSource combatSFXSource;
+    [SerializeField] private AudioSource pickUpSFXSource;
 
     [Header("----- Audio Clips -----")]
     [SerializeField] private AudioClip changeWeaponSound;
@@ -17,47 +17,53 @@ public class AudioManager : Singleton<AudioManager>
     [SerializeField] private AudioClip arrowImpactSound;
     [SerializeField] private AudioClip laserAttackSound;
     [SerializeField] private AudioClip pickupSound;
-    [SerializeField] private AudioClip PlayerHurtSound;
+    [SerializeField] private AudioClip playerHurtSound;
+    [SerializeField] private AudioClip gameOverSound;
 
     public void PickupSFX()
     {
-        PickUpSFXSource.clip = pickupSound;
-        PickUpSFXSource.Play();
+        pickUpSFXSource.clip = pickupSound;
+        pickUpSFXSource.Play();
     }
 
     public void ChangeWeaponSFX()
     {
-        AvtiveInventorySFXSource.clip = changeWeaponSound;
-        AvtiveInventorySFXSource.Play();
+        avtiveInventorySFXSource.clip = changeWeaponSound;
+        avtiveInventorySFXSource.Play();
     }
 
     public void FlashAttackSFX()
     {
-        CombatSFXSource.clip = flashAttackSound;
-        CombatSFXSource.Play();
+        combatSFXSource.clip = flashAttackSound;
+        combatSFXSource.Play();
     }
 
     public void ArrowAttackSFX()
     {
-        CombatSFXSource.clip = arrowAttackSound;
-        CombatSFXSource.Play();
+        combatSFXSource.clip = arrowAttackSound;
+        combatSFXSource.Play();
     }
 
     public void ArrowImpactSFX()
     {
-        CombatSFXSource.clip = arrowImpactSound;
-        CombatSFXSource.Play();
+        combatSFXSource.clip = arrowImpactSound;
+        combatSFXSource.Play();
     }
 
     public void LaserAttackSFX()
     {
-        CombatSFXSource.clip = laserAttackSound;
-        CombatSFXSource.Play();
+        combatSFXSource.clip = laserAttackSound;
+        combatSFXSource.Play();
     }
 
     public void PlayerHurtSFX()
     {
-        CombatSFXSource.clip = PlayerHurtSound;
-        CombatSFXSource.Play();
+        combatSFXSource.PlayOneShot(playerHurtSound);
+        // combatSFXSource.Play();
+    }
+
+    public void GameOverSFX()
+    {
+        musicSource.PlayOneShot(gameOverSound);
     }
 }

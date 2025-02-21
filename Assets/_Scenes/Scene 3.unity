@@ -29466,11 +29466,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7684660561821059812, guid: bceb47c58df02c54da87db974e90e186, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.29
+      value: 25.59
       objectReference: {fileID: 0}
     - target: {fileID: 7684660561821059812, guid: bceb47c58df02c54da87db974e90e186, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.05
+      value: 3.12
       objectReference: {fileID: 0}
     - target: {fileID: 7684660561821059812, guid: bceb47c58df02c54da87db974e90e186, type: 3}
       propertyPath: m_LocalPosition.z
@@ -41368,6 +41368,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5258202358950106361, guid: 3ca2f4f5660a40e46b8ccbe796c5102d, type: 3}
+      propertyPath: playerHurtSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 8c724ed041966b140a31087d1c3a129f, type: 3}
     - target: {fileID: 7841114648279739625, guid: 3ca2f4f5660a40e46b8ccbe796c5102d, type: 3}
       propertyPath: m_Name
       value: Game Manager

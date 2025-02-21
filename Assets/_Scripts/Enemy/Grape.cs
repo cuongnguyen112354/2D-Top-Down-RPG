@@ -27,6 +27,11 @@ public class Grape : MonoBehaviour, IEnemy
             spriteRenderer.flipX = true;
     }
 
+    public void StopAttack()
+    {
+        enabled = false;
+    }
+
     public void SpawnProjectileAnimaEvent()
     {
         Instantiate(grapeProjectilePrefab, transform.position, Quaternion.identity);
