@@ -36,6 +36,7 @@ public class ActiveInventory : Singleton<ActiveInventory>
 
     private void ToggleActiveSlot(int numValue)
     {
+        AudioManager.Instance.ChangeWeaponSFX();
         ToggleActiveHighlight(numValue);
     }
 

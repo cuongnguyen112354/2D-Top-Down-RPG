@@ -36,6 +36,7 @@ public class Sword : MonoBehaviour, IWeapon
 
     public void Attack()
     {
+        AudioManager.Instance.FlashAttackSFX();
         animator.SetTrigger("Attack");
         weaponCollider.gameObject.SetActive(true);
         slashAnima = Instantiate(slashAnimaPrefab, slashAnimaSpawnPoint.position, Quaternion.identity);

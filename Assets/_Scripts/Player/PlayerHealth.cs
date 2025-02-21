@@ -57,6 +57,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
     {
         if (!canTakeDamage) return;
 
+        AudioManager.Instance.PlayerHurtSFX();
         ScreenShakeManager.Instance.ShakeScreen();
         knockBack.GetKnockBack(hitTransform, knockBackThrustAmount);
         StartCoroutine(flash.FlashRoutine());

@@ -44,10 +44,12 @@ public class Projectile : MonoBehaviour
             {
                 player?.TakeDamage(1, transform);
                 Instantiate(particleOnHitPrefabVFX, transform.position, transform.rotation);
+                AudioManager.Instance.ArrowImpactSFX();
                 Destroy(gameObject);
             } else if (!other.isTrigger && indestructible)
             {
                 Instantiate(particleOnHitPrefabVFX, transform.position, transform.rotation);
+                AudioManager.Instance.ArrowImpactSFX();
                 Destroy(gameObject);
             }
         }

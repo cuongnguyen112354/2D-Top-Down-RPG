@@ -58,6 +58,7 @@ public class PickUp : MonoBehaviour
         if (other.gameObject.GetComponent<PlayerController>())
         {
             DetectPickupType();
+            AudioManager.Instance.PickupSFX();
             Destroy(gameObject);
         }
     }

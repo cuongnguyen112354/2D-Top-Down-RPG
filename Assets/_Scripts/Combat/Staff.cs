@@ -25,6 +25,7 @@ public class Staff : MonoBehaviour, IWeapon
 
     public void Attack()
     {
+        AudioManager.Instance.LaserAttackSFX();
         animator.SetTrigger(ATTACK_HASH);
     }
     
