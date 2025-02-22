@@ -1,12 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
+    private PlayerControls playerControls;
+
     protected override void Awake()
     {
         base.Awake();
+        playerControls = new PlayerControls();
+    }
+
+    private void OnEnable()
+    {
+        playerControls.Enable();
+    }
+
+    private void Start()
+    {
+        AudioManager.Instance.PlayBackgroundMusic();
+        playerControls.Gameplay.Quit.performed += _ => QuitGame();
+    }
+
+    private void QuitGame()
+    {
+        Application.Quit();
     }
 
     public void DisableObjects()

@@ -11,6 +11,7 @@ public class AudioManager : Singleton<AudioManager>
     [SerializeField] private AudioSource pickUpSFXSource;
 
     [Header("----- Audio Clips -----")]
+    [SerializeField] private AudioClip backgroundMusic;
     [SerializeField] private AudioClip changeWeaponSound;
     [SerializeField] private AudioClip flashAttackSound;
     [SerializeField] private AudioClip arrowAttackSound;
@@ -19,6 +20,12 @@ public class AudioManager : Singleton<AudioManager>
     [SerializeField] private AudioClip pickupSound;
     [SerializeField] private AudioClip playerHurtSound;
     [SerializeField] private AudioClip gameOverSound;
+
+    public void PlayBackgroundMusic()
+    {
+        musicSource.clip = backgroundMusic;
+        musicSource.Play();
+    }
 
     public void PickupSFX()
     {

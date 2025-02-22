@@ -192,6 +192,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Gameplay",
+            "id": "18b48deb-c18f-4a3b-89b1-0348f53e8d29",
+            "actions": [
+                {
+                    "name": "Quit",
+                    "type": "PassThrough",
+                    "id": "b2936caf-7f38-45d3-b78f-cb891e103885",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "2feabbc5-f296-45a8-b167-09f6da33a141",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Quit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

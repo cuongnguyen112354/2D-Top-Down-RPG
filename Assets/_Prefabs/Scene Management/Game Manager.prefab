@@ -708,7 +708,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1813485952544471919}
   - component: {fileID: 8306666773230234574}
-  - component: {fileID: 2405491063985362027}
+  - component: {fileID: 2086572641054675159}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -748,7 +748,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcfd59e7ea737df48a820e29b09b254e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2405491063985362027
+--- !u!114 &2086572641054675159
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -757,7 +757,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7841114648279739625}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bcb79c79d37f104e940632c69a7d457, type: 3}
+  m_Script: {fileID: 11500000, guid: 48fb9e77e9084214f9413c6d6f5e09aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7947051032491469682
@@ -812,6 +812,7 @@ MonoBehaviour:
   avtiveInventorySFXSource: {fileID: 4450105609576908854}
   combatSFXSource: {fileID: 868909295306742363}
   pickUpSFXSource: {fileID: 7512554534828703645}
+  backgroundMusic: {fileID: 0}
   changeWeaponSound: {fileID: 8300000, guid: a22aa5365bc488640a5d90a5d27b75a1, type: 3}
   flashAttackSound: {fileID: 8300000, guid: 7945e84c8c2644047afebd0a4dd7d2bd, type: 3}
   arrowAttackSound: {fileID: 8300000, guid: b8c2141a717b3f747aef4d223bee6aaf, type: 3}
