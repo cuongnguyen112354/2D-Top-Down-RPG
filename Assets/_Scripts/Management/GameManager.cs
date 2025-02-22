@@ -19,11 +19,9 @@ public class GameManager : Singleton<GameManager>
     }
 
     private void Start()
-    {
+    {        
         UIFade.Instance.FadeToClear();
         playerControls.Gameplay.Quit.performed += _ => QuitGame();
-
-        ActiveGameObjects();
     }
 
     private void QuitGame()
@@ -50,14 +48,6 @@ public class GameManager : Singleton<GameManager>
     public void DestroyGameManager()
     {
         Destroy(gameObject);
-    }
-
-    private void ActiveGameObjects()
-    {
-        UIFade.Instance.transform.Find("Active Inventory")?.gameObject.SetActive(true);
-        UIFade.Instance.transform.Find("Gold Coin Container")?.gameObject.SetActive(true);
-        UIFade.Instance.transform.Find("Heart Container")?.gameObject.SetActive(true);
-        UIFade.Instance.transform.Find("Stamina Container")?.gameObject.SetActive(true);
     }
 
     public void InActiveGameObjects()

@@ -39,7 +39,7 @@ public class GameController : MonoBehaviour
     private IEnumerator WaitToLoadScene()
     {
         yield return new WaitForSeconds(1f);
-        // UIFade.Instance.DestroyGameObject();
+        ActiveGameObjects();
         AudioManager.Instance.StopBackgroundMusic();
         SceneManager.LoadScene("Scene 1");
     }
@@ -56,5 +56,13 @@ public class GameController : MonoBehaviour
         newGameButton.gameObject.SetActive(false);
         continueButton.gameObject.SetActive(false);
         quitButton.gameObject.SetActive(false); 
+    }
+
+    private void ActiveGameObjects()
+    {
+        UIFade.Instance.transform.Find("Active Inventory")?.gameObject.SetActive(true);
+        UIFade.Instance.transform.Find("Gold Coin Container")?.gameObject.SetActive(true);
+        UIFade.Instance.transform.Find("Heart Container")?.gameObject.SetActive(true);
+        UIFade.Instance.transform.Find("Stamina Container")?.gameObject.SetActive(true);
     }
 }
