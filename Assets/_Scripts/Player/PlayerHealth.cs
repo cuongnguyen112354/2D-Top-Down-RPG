@@ -13,7 +13,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
     [SerializeField] private float damageRecoveryTime = 1f;
 
     const string HEALTH_SLIDER_TEXT = "Heart Slider";
-    const string TOWN_TEXT = "Scene 1";
+    const string TOWN_TEXT = "Menu Scene";
     readonly int DEADTH_HASH = Animator.StringToHash("Death");
 
     private Slider healthSlider;
@@ -100,8 +100,12 @@ public class PlayerHealth : Singleton<PlayerHealth>
 
     private IEnumerator DeadthLoadSceneRoutine()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
+        UIFade.Instance.FadeToBlack();
+        GameManager.Instance.InActiveGameObjects();
+        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
+        GameManager.Instance.DestroyGameManager();
         SceneManager.LoadScene(TOWN_TEXT);
     }
 }

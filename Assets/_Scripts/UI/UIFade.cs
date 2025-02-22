@@ -38,4 +38,9 @@ public class UIFade : Singleton<UIFade>
             yield return null;
         }
     }
+
+    public void DestroyGameObject()
+    {
+        Destroy(gameObject);
+    }
 }

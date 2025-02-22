@@ -812,7 +812,7 @@ MonoBehaviour:
   avtiveInventorySFXSource: {fileID: 4450105609576908854}
   combatSFXSource: {fileID: 868909295306742363}
   pickUpSFXSource: {fileID: 7512554534828703645}
-  backgroundMusic: {fileID: 0}
+  backgroundMusic: {fileID: 8300000, guid: b4f1ab7818d8ec349a2fe68597641304, type: 3}
   changeWeaponSound: {fileID: 8300000, guid: a22aa5365bc488640a5d90a5d27b75a1, type: 3}
   flashAttackSound: {fileID: 8300000, guid: 7945e84c8c2644047afebd0a4dd7d2bd, type: 3}
   arrowAttackSound: {fileID: 8300000, guid: b8c2141a717b3f747aef4d223bee6aaf, type: 3}

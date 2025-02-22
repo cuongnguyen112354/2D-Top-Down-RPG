@@ -27,6 +27,11 @@ public class AudioManager : Singleton<AudioManager>
         musicSource.Play();
     }
 
+    public void StopBackgroundMusic()
+    {
+        musicSource.Stop();
+    }
+
     public void PickupSFX()
     {
         pickUpSFXSource.clip = pickupSound;

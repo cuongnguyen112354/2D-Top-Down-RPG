@@ -10,26 +10,17 @@ public class GameController : MonoBehaviour
     [SerializeField] private Button continueButton;
     [SerializeField] private Button quitButton;
 
-    private PlayerControls playerControls;
-
-    private void Awake()
-    {
-        playerControls = new PlayerControls();
-    }
-
-    private void OnEnable()
-    {
-        playerControls.Enable();
-    }
-
     private void Start()
     {
+        ActiveButtons();
+
         newGameButton.onClick.AddListener(StartGame);
         // continueButton.onClick.AddListener(() => SceneManager.LoadScene("Scene 1"));
         quitButton.onClick.AddListener(() => QuitGame());
 
         AudioManager.Instance.PlayBackgroundMusic();
-        playerControls.Gameplay.Quit.performed += _ => QuitGame();
+        if (UIFade.Instance)
+            UIFade.Instance.FadeToClear();
     }
 
     private void QuitGame()
@@ -39,6 +30,31 @@ public class GameController : MonoBehaviour
 
     public void StartGame()
     {
+        DisableButtons();
+        if (UIFade.Instance)
+            UIFade.Instance.FadeToBlack();
+        StartCoroutine(WaitToLoadScene());
+    }
+
+    private IEnumerator WaitToLoadScene()
+    {
+        yield return new WaitForSeconds(1f);
+        // UIFade.Instance.DestroyGameObject();
+        AudioManager.Instance.StopBackgroundMusic();
         SceneManager.LoadScene("Scene 1");
+    }
+
+    private void ActiveButtons()
+    {
+        newGameButton.gameObject.SetActive(true);
+        continueButton.gameObject.SetActive(true);
+        quitButton.gameObject.SetActive(true);
+    }
+
+    private void DisableButtons()
+    {
+        newGameButton.gameObject.SetActive(false);
+        continueButton.gameObject.SetActive(false);
+        quitButton.gameObject.SetActive(false); 
     }
 }
