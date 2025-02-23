@@ -10,7 +10,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float attackCooldown =  2f;
     [SerializeField] private bool stopMovingWhileAttacking = false;
 
-    private bool canAttack = true;    
+    public bool canAttack { get; set; }
 
     private enum State
     {
@@ -32,6 +32,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Start()
     {
+        canAttack = true;
         roamPosition = GetRoamingPosition();
     }
 

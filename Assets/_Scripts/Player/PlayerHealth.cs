@@ -13,7 +13,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
     [SerializeField] private float damageRecoveryTime = 1f;
 
     const string HEALTH_SLIDER_TEXT = "Heart Slider";
-    const string TOWN_TEXT = "Menu Scene";
+    const string TOWN_TEXT = "Main Menu";
     readonly int DEADTH_HASH = Animator.StringToHash("Death");
 
     private Slider healthSlider;
