@@ -90,9 +90,8 @@ public class PlayerHealth : Singleton<PlayerHealth>
             currentHealth = 0;
             isDead = true;
             canTakeDamage = false;
-            AudioManager.Instance.GameOverSFX();
             Destroy(ActiveWeapon.Instance.gameObject);
-            GameManager.Instance.DisableObjects();
+            AudioManager.Instance.GameOverSFX();
             GetComponent<Animator>().SetTrigger(DEADTH_HASH);
             StartCoroutine(DeadthLoadSceneRoutine());
         }
@@ -101,10 +100,6 @@ public class PlayerHealth : Singleton<PlayerHealth>
     private IEnumerator DeadthLoadSceneRoutine()
     {
         yield return new WaitForSeconds(1.5f);
-        UIFade.Instance.FadeToBlack();
-        GameManager.Instance.InActiveGameObjects();
-        yield return new WaitForSeconds(1f);
-        Destroy(gameObject);
-        SceneManager.LoadScene(TOWN_TEXT);
+        GameManager.Instance.BackToMainMenu();
     }
 }

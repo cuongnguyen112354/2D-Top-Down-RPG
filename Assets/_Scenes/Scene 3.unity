@@ -41464,7 +41464,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 195813502016877634, guid: 3ca2f4f5660a40e46b8ccbe796c5102d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1813485952544471919, guid: 3ca2f4f5660a40e46b8ccbe796c5102d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -42232,7 +42232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3350776249962364315, guid: e49a006ccc082b04da23a93103c955ee, type: 3}
       propertyPath: m_Name
-      value: UI Canvas
+      value: Gameplay UI
       objectReference: {fileID: 0}
     - target: {fileID: 4141818140811394261, guid: e49a006ccc082b04da23a93103c955ee, type: 3}
       propertyPath: m_AnchorMax.y

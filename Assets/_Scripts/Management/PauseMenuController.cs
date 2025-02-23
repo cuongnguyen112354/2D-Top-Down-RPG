@@ -11,11 +11,18 @@ public class PauseMenuController : MonoBehaviour
 
     private GameObject pauseMenu;
     private Image blurImage;
+    private PlayerControls playerControls;
 
     private void Awake()
     {
+        playerControls = new PlayerControls();
         pauseMenu = transform.Find("Pause Panel").gameObject;
         blurImage = transform.Find("Blur Image").GetComponent<Image>();
+    }
+
+    private void OnEnable()
+    {
+        playerControls.Enable();
     }
 
     private void Start()
@@ -24,6 +31,8 @@ public class PauseMenuController : MonoBehaviour
         pauseButton.onClick.AddListener(PauseGame);
         resumeButton.onClick.AddListener(ResumeGame);
         homeButton.onClick.AddListener(BackToMainMenu);
+        
+        playerControls.Gameplay.Pause.performed += _ => PauseGame();
     }
 
     private void PauseGame()
@@ -46,6 +55,5 @@ public class PauseMenuController : MonoBehaviour
     {
         Time.timeScale = 1;
         GameManager.Instance.BackToMainMenu();
-        Destroy(gameObject);
     }
 }

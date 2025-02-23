@@ -198,7 +198,7 @@
             "id": "18b48deb-c18f-4a3b-89b1-0348f53e8d29",
             "actions": [
                 {
-                    "name": "Quit",
+                    "name": "Pause",
                     "type": "PassThrough",
                     "id": "b2936caf-7f38-45d3-b78f-cb891e103885",
                     "expectedControlType": "Button",
@@ -215,7 +215,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Quit",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

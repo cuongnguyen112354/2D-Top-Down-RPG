@@ -2615,7 +2615,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3799419357408680970, guid: e49a006ccc082b04da23a93103c955ee, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4141818140811394261, guid: e49a006ccc082b04da23a93103c955ee, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2692,6 +2692,10 @@ PrefabInstance:
     - target: {fileID: 6337355566038156136, guid: e49a006ccc082b04da23a93103c955ee, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6395441479876660638, guid: e49a006ccc082b04da23a93103c955ee, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7352134236270298997, guid: e49a006ccc082b04da23a93103c955ee, type: 3}
       propertyPath: m_AnchorMax.y
@@ -6613,53 +6617,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 850478567}
   m_CullTransparentMesh: 1
---- !u!1 &993591843
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 993591844}
-  - component: {fileID: 993591845}
-  m_Layer: 0
-  m_Name: Menu Controller
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &993591844
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 993591843}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &993591845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 993591843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bcb79c79d37f104e940632c69a7d457, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  newGameButton: {fileID: 634093225}
-  continueButton: {fileID: 162853903}
-  quitButton: {fileID: 1360434013}
 --- !u!1 &1048836063
 GameObject:
   m_ObjectHideFlags: 0
@@ -9028,6 +8985,7 @@ GameObject:
   - component: {fileID: 2100583644}
   - component: {fileID: 2100583643}
   - component: {fileID: 2100583642}
+  - component: {fileID: 2100583646}
   m_Layer: 5
   m_Name: Menu UI
   m_TagString: Untagged
@@ -9120,6 +9078,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &2100583646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100583641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bcb79c79d37f104e940632c69a7d457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newGameButton: {fileID: 634093225}
+  continueButton: {fileID: 162853903}
+  quitButton: {fileID: 1360434013}
 --- !u!1 &2142778576
 GameObject:
   m_ObjectHideFlags: 0
@@ -14750,7 +14723,6 @@ SceneRoots:
   - {fileID: 2092847425}
   - {fileID: 399253624}
   - {fileID: 8441688435650976610}
-  - {fileID: 993591844}
   - {fileID: 2100583645}
   - {fileID: 1607262723}
   - {fileID: 646408156}

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -26,7 +27,7 @@ public class GameManager : Singleton<GameManager>
 
     public void InActiveGameObjects()
     {
-        GameObject.Find("Gameplay UI")?.gameObject.SetActive(false);
+        GameObject.Find("Gameplay Info UI")?.gameObject.SetActive(false);
     }
 
     public void DetectVictory()
@@ -41,7 +42,7 @@ public class GameManager : Singleton<GameManager>
     {
         finalScene = false;
         DisableObjects();
-        InActiveGameObjects();
+        FindObjectOfType<PauseMenuController>().GetComponent<Canvas>().sortingOrder = -2;
         UIFade.Instance.FadeToBlack();
         StartCoroutine(LoadMenuScene());
     }
@@ -49,6 +50,7 @@ public class GameManager : Singleton<GameManager>
     private IEnumerator LoadMenuScene()
     {
         yield return new WaitForSeconds(1f);
+        InActiveGameObjects();
         Destroy(PlayerController.Instance.gameObject);
         SceneManager.LoadScene("Main Menu");
     }

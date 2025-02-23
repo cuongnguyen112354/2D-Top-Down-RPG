@@ -15,6 +15,7 @@ public class AreaEntrance : MonoBehaviour
 
             EnemyAI[] enemies = FindObjectsOfType<EnemyAI>();
             GameManager.Instance.EnemyCount = enemies.Length;
+            FindObjectOfType<EnemyExisting>().UpdateEnemyCount();
 
             UIFade.Instance.FadeToClear();
         }

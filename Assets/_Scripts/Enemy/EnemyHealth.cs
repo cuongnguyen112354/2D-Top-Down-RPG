@@ -43,7 +43,7 @@ public class EnemyHealth : MonoBehaviour
         {
             Instantiate(deathVFXPrefab, transform.position, Quaternion.identity);
             GameManager.Instance.EnemyCount--;
-            Debug.Log("There are " + GameManager.Instance.EnemyCount + " enemies left.");
+            FindObjectOfType<EnemyExisting>().UpdateEnemyCount();
             GetComponent<PickupSpawner>().DropItems();
             GameManager.Instance.DetectVictory();
             Destroy(gameObject);

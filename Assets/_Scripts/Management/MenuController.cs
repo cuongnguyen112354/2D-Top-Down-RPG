@@ -14,9 +14,10 @@ public class MenuController : MonoBehaviour
     {
         newGameButton.onClick.AddListener(StartNewGame);
         continueButton.onClick.AddListener(ContinueGame);
-        quitButton.onClick.AddListener(() => QuitGame());
+        quitButton.onClick.AddListener(QuitGame);
 
         AudioManager.Instance.PlayBackgroundMusic();
+
         if (UIFade.Instance)
             UIFade.Instance.FadeToClear();
     }
@@ -28,9 +29,11 @@ public class MenuController : MonoBehaviour
 
     private void StartNewGame()
     {
-        InActiveButtons();
+        UpdateSorting();
+
         if (UIFade.Instance)
             UIFade.Instance.FadeToBlack();
+            
         StartCoroutine(WaitToLoadScene());
     }
 
@@ -47,13 +50,13 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene("Scene 1");
     }
 
-    private void InActiveButtons()
+    private void UpdateSorting()
     {
-        GameObject.Find("Menu UI")?.gameObject.SetActive(false);
+        GetComponent<Canvas>().sortingOrder = -2;
     }
 
     private void ActiveGameObjects()
     {
-        UIFade.Instance.transform.Find("Gameplay UI")?.gameObject.SetActive(true);
+        UIFade.Instance.transform.Find("Gameplay Info UI")?.gameObject.SetActive(true);
     }
 }
