@@ -105,7 +105,6 @@ public class PlayerHealth : Singleton<PlayerHealth>
         GameManager.Instance.InActiveGameObjects();
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);
-        GameManager.Instance.DestroyGameManager();
         SceneManager.LoadScene(TOWN_TEXT);
     }
 }

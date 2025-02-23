@@ -15,6 +15,14 @@ public class AreaExit : MonoBehaviour
     {
         if (other.gameObject.GetComponent<PlayerController>())
         {
+            int enemyNum = GameManager.Instance.EnemyCount;
+
+            if (enemyNum > 0)
+            {
+                Debug.Log($"There are {enemyNum} enemies left.");
+                return;
+            }
+
             GameManager.Instance.DisableObjects();
             SceneManagement.Instance.SetTransitionName(sceneTransitionName);
             UIFade.Instance.FadeToBlack();

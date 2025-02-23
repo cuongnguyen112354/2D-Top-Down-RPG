@@ -12,6 +12,10 @@ public class AreaEntrance : MonoBehaviour
         {
             PlayerController.Instance.transform.position = this.transform.position;
             CameraController.Instance.SetPlayerCameraFollow();
+
+            EnemyAI[] enemies = FindObjectsOfType<EnemyAI>();
+            GameManager.Instance.EnemyCount = enemies.Length;
+
             UIFade.Instance.FadeToClear();
         }
     }

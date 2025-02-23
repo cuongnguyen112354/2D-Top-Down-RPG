@@ -5,7 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
+    public bool FinalScene { get => finalScene; set => finalScene = value; }
+    public int EnemyCount { get; set; }
+
     private PlayerControls playerControls;
+    private bool finalScene = false;
 
     protected override void Awake()
     {
@@ -19,14 +23,8 @@ public class GameManager : Singleton<GameManager>
     }
 
     private void Start()
-    {        
-        UIFade.Instance.FadeToClear();
-        playerControls.Gameplay.Quit.performed += _ => QuitGame();
-    }
-
-    private void QuitGame()
     {
-        Application.Quit();
+        playerControls.Gameplay.Quit.performed += _ => QuitGame();
     }
 
     public void DisableObjects()
@@ -45,16 +43,31 @@ public class GameManager : Singleton<GameManager>
             grape.StopAllCoroutines();
     }
 
-    public void DestroyGameManager()
-    {
-        Destroy(gameObject);
-    }
-
     public void InActiveGameObjects()
     {
-        GameObject.Find("Active Inventory")?.gameObject.SetActive(false);
-        GameObject.Find("Gold Coin Container")?.gameObject.SetActive(false);
-        GameObject.Find("Heart Container")?.gameObject.SetActive(false);
-        GameObject.Find("Stamina Container")?.gameObject.SetActive(false);
+        GameObject.Find("Gameplay UI")?.gameObject.SetActive(false);
+    }
+
+    public void DetectVictory()
+    {
+        if (EnemyCount > 0 || !FinalScene)
+            return;
+
+        DisableObjects();
+        InActiveGameObjects();
+        UIFade.Instance.FadeToBlack();
+        StartCoroutine(LoadMenuScene());
+    }
+
+    private IEnumerator LoadMenuScene()
+    {
+        yield return new WaitForSeconds(1f);
+        Destroy(PlayerController.Instance.gameObject);
+        SceneManager.LoadScene("Menu Scene");
+    }
+
+    private void QuitGame()
+    {
+        Application.Quit();
     }
 }

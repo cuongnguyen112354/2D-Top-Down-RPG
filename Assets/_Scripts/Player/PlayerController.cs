@@ -48,10 +48,13 @@ public class PlayerController : Singleton<PlayerController>
     private void Start()
     {
         playerControls.Combat.Dash.performed += _ => Dash();
-
         startingMoveSpeed = moveSpeed;
-
         ActiveInventory.Instance.EquipStartingWeapon();
+
+        EnemyAI[] enemies = FindObjectsOfType<EnemyAI>();
+        GameManager.Instance.EnemyCount = enemies.Length;
+
+        UIFade.Instance.FadeToClear();
     }
 
     void Update()
