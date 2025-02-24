@@ -21,6 +21,13 @@ public class AreaExit : MonoBehaviour
 
             GameManager.Instance.DisableObjects();
             SceneManagement.Instance.SetTransitionName(sceneTransitionName);
+
+            GameManager.Instance.SaveSceneData(
+                PlayerHealth.Instance.CurrentHealth,
+                PlayerStamina.Instance.CurrentStamina, 
+                EconomyManager.Instance.CurrentGold, 
+                sceneToLoad);
+
             UIFade.Instance.FadeToBlack();
             StartCoroutine(LoadSceneRoutine());
         }

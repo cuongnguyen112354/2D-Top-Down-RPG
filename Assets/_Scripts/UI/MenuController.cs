@@ -29,25 +29,40 @@ public class MenuController : MonoBehaviour
 
     private void StartNewGame()
     {
-        UpdateSorting();
-
         if (UIFade.Instance)
             UIFade.Instance.FadeToBlack();
+
+        SetNewData();
             
         StartCoroutine(WaitToLoadScene());
     }
 
+    private void SetNewData()
+    {
+        GameManager.Instance.SaveSceneData(5, 3, 0, "Scene 1");
+    }
+
     private void ContinueGame()
     {
-        return;
+        if (GameManager.Instance.previousSceneData.sceneName == "")
+        {
+            Debug.Log("No previous scene data found.");
+            return;
+        }
+
+        if (UIFade.Instance)
+            UIFade.Instance.FadeToBlack();
+
+        StartCoroutine(WaitToLoadScene());
     }
 
     private IEnumerator WaitToLoadScene()
     {
+        UpdateSorting();
         yield return new WaitForSeconds(1f);
         ActiveGameObjects();
         AudioManager.Instance.StopBackgroundMusic();
-        SceneManager.LoadScene("Scene 1");
+        SceneManager.LoadScene(GameManager.Instance.previousSceneData.sceneName);
     }
 
     private void UpdateSorting()

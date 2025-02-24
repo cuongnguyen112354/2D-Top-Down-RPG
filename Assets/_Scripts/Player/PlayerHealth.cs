@@ -7,17 +7,31 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : Singleton<PlayerHealth>
 {
     public bool isDead { get; private set; }
+    public int CurrentHealth
+    { 
+        get => _currentHealth; 
+        set
+        {
+            if (value > maxHealth)
+                _currentHealth = maxHealth;
+            else if (value < 0)
+                _currentHealth = 0;
+            else
+                _currentHealth = value;
+
+            UpdateHealthSlider();
+        }
+    }
 
     [SerializeField] private int maxHealth = 3;
     [SerializeField] private float knockBackThrustAmount = 10f;
     [SerializeField] private float damageRecoveryTime = 1f;
 
     const string HEALTH_SLIDER_TEXT = "Heart Slider";
-    const string TOWN_TEXT = "Main Menu";
     readonly int DEADTH_HASH = Animator.StringToHash("Death");
 
     private Slider healthSlider;
-    private int currentHealth;
+    private int _currentHealth;
     private bool canTakeDamage = true;
     private KnockBack knockBack;
     private Flash flash;
@@ -32,7 +46,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
     private void Start()
     {
         isDead = false;
-        currentHealth = maxHealth;
+        _currentHealth = maxHealth;
 
         UpdateHealthSlider();
     }
@@ -47,9 +61,9 @@ public class PlayerHealth : Singleton<PlayerHealth>
 
     public void HealPlayer()
     {
-        if (currentHealth < maxHealth)
+        if (_currentHealth < maxHealth)
         {
-            currentHealth += 1;
+            _currentHealth += 1;
             UpdateHealthSlider();
         }
     }
@@ -62,7 +76,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
         knockBack.GetKnockBack(hitTransform, knockBackThrustAmount);
         StartCoroutine(flash.FlashRoutine());
         canTakeDamage = false;
-        currentHealth -= damageAmount;
+        _currentHealth -= damageAmount;
         StartCoroutine(DamageRecoveryRoutine());
         UpdateHealthSlider();
         CheckIfPlayerDeath();
@@ -80,14 +94,14 @@ public class PlayerHealth : Singleton<PlayerHealth>
             healthSlider = GameObject.Find(HEALTH_SLIDER_TEXT).GetComponent<Slider>();
         
         healthSlider.maxValue = maxHealth;
-        healthSlider.value = currentHealth;
+        healthSlider.value = _currentHealth;
     }
 
     private void CheckIfPlayerDeath()
     {
-        if (currentHealth <= 0 && !isDead)
+        if (_currentHealth <= 0 && !isDead)
         {
-            currentHealth = 0;
+            _currentHealth = 0;
             isDead = true;
             canTakeDamage = false;
             Destroy(ActiveWeapon.Instance.gameObject);

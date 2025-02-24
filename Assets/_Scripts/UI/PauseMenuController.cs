@@ -25,6 +25,11 @@ public class PauseMenuController : MonoBehaviour
         playerControls.Enable();
     }
 
+    private void OnDisable()
+    {
+        playerControls.Disable();
+    }
+
     private void Start()
     {
         pauseMenu.SetActive(false);

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,7 +10,14 @@ public class GameManager : Singleton<GameManager>
     public bool FinalScene { get => finalScene; set => finalScene = value; }
     public int EnemyCount { get; set; }
 
+    public SceneData previousSceneData;
+
     private bool finalScene = false;
+
+    public void SaveSceneData(int health, int stamina, int goldCoin, string sceneName)
+    {
+        previousSceneData = new SceneData(health, stamina, goldCoin, sceneName);
+    }
 
     public void DisableObjects()
     {

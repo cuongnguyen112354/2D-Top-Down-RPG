@@ -5,13 +5,28 @@ using UnityEngine.UI;
 
 public class PlayerStamina : Singleton<PlayerStamina>
 {
-    public int CurrentStamina { get; private set; }
+    public int CurrentStamina
+    { 
+        get => _currentStamina; 
+        set
+        {
+            if (value > startingStamina)
+                _currentStamina = startingStamina;
+            else if (value < 0)
+                _currentStamina = 0;
+            else
+                _currentStamina = value;
+
+            UpdateStaminaImages();
+        }
+    }
 
     [SerializeField] private Sprite fullStaminaImage, emptyStaminaImage;
     [SerializeField] private int timeBetweenStaminaRefresh = 3;
 
     const string STAMINA_CONTAINER_TEXT = "Stamina Container";
 
+    private int _currentStamina;
     private Transform staminaContainer;
     private int startingStamina = 3;
     private int maxStamina;
@@ -20,7 +35,7 @@ public class PlayerStamina : Singleton<PlayerStamina>
     {
         base.Awake();
         maxStamina = startingStamina;
-        CurrentStamina = startingStamina;
+        _currentStamina = startingStamina;
     }
 
     private void Start()
@@ -30,14 +45,14 @@ public class PlayerStamina : Singleton<PlayerStamina>
 
     public void UseStamina()
     {
-        CurrentStamina--;
+        _currentStamina--;
         UpdateStaminaImages();
     }
 
     public void RefreshStamina()
     {
-        if (CurrentStamina < maxStamina)
-            CurrentStamina++;
+        if (_currentStamina < maxStamina)
+            _currentStamina++;
 
         UpdateStaminaImages();
     }
@@ -45,12 +60,12 @@ public class PlayerStamina : Singleton<PlayerStamina>
     private void UpdateStaminaImages()
     {
         for (int i = 0; i < maxStamina; i++)
-            if (i <= CurrentStamina - 1)
+            if (i <= _currentStamina - 1)
                 staminaContainer.GetChild(i).GetComponent<Image>().sprite = fullStaminaImage;
             else
                 staminaContainer.GetChild(i).GetComponent<Image>().sprite = emptyStaminaImage;
 
-        if (CurrentStamina < maxStamina)
+        if (_currentStamina < maxStamina)
         {
             StopAllCoroutines();
             StartCoroutine(RefreshStaminaRoutine());

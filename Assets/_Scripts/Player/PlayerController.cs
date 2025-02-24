@@ -54,6 +54,10 @@ public class PlayerController : Singleton<PlayerController>
         EnemyAI[] enemies = FindObjectsOfType<EnemyAI>();
         GameManager.Instance.EnemyCount = enemies.Length;
         FindObjectOfType<EnemyExisting>().UpdateEnemyCount();
+
+        PlayerStamina.Instance.CurrentStamina = GameManager.Instance.previousSceneData.stamina;
+        PlayerHealth.Instance.CurrentHealth = GameManager.Instance.previousSceneData.health;
+        EconomyManager.Instance.CurrentGold = GameManager.Instance.previousSceneData.goldCoin;
         
         UIFade.Instance.FadeToClear();
     }
