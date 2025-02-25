@@ -15820,7 +15820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a30579a027f7ff0469e843cfc6fe3f72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transparencyAmount: 0.7
+  transparencyAmount: 0.8
   fadeTime: 0.3
 --- !u!483693784 &1332066168
 TilemapRenderer:

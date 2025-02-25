@@ -15,20 +15,11 @@ public class AreaExit : MonoBehaviour
     {
         if (other.gameObject.GetComponent<PlayerController>())
         {
-            int enemyNum = GameManager.Instance.EnemyCount;
+            if (GameManager.Instance.EnemyCount > 0) return;
 
-            if (enemyNum > 0) return;
-
-            GameManager.Instance.DisableObjects();
             SceneManagement.Instance.SetTransitionName(sceneTransitionName);
+            GameManager.Instance.ExitScene(sceneToLoad);
 
-            GameManager.Instance.SaveSceneData(
-                PlayerHealth.Instance.CurrentHealth,
-                PlayerStamina.Instance.CurrentStamina, 
-                EconomyManager.Instance.CurrentGold, 
-                sceneToLoad);
-
-            UIFade.Instance.FadeToBlack();
             StartCoroutine(LoadSceneRoutine());
         }
     }

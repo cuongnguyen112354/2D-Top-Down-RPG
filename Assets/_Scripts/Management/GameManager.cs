@@ -9,10 +9,44 @@ public class GameManager : Singleton<GameManager>
 {
     public bool FinalScene { get => finalScene; set => finalScene = value; }
     public int EnemyCount { get; set; }
-
     public SceneData previousSceneData;
 
     private bool finalScene = false;
+
+    private void Start()
+    {
+        GetComponent<SaveLoadSystem>().LoadGame();
+    }
+
+    public void EntranceScene()
+    {
+        EnemyAI[] enemies = FindObjectsOfType<EnemyAI>();
+        EnemyCount = enemies.Length;
+        FindObjectOfType<EnemyExisting>().UpdateEnemyCount();
+
+        UIFade.Instance.FadeToClear();
+    }
+
+    public void ExitScene(string sceneToLoad)
+    {
+        DisableObjects();
+
+        SaveSceneData(
+            PlayerHealth.Instance.CurrentHealth,
+            PlayerStamina.Instance.CurrentStamina, 
+            EconomyManager.Instance.CurrentGold, 
+            sceneToLoad
+        );
+
+        UIFade.Instance.FadeToBlack();
+    }
+
+    public void LoadPlayerData()
+    {
+        PlayerStamina.Instance.CurrentStamina = previousSceneData.stamina;
+        PlayerHealth.Instance.CurrentHealth = previousSceneData.health;
+        EconomyManager.Instance.CurrentGold = previousSceneData.goldCoin;
+    }
 
     public void SaveSceneData(int health, int stamina, int goldCoin, string sceneName)
     {
@@ -42,6 +76,8 @@ public class GameManager : Singleton<GameManager>
     {
         if (EnemyCount > 0 || !FinalScene)
             return;
+
+        SaveSceneData(5, 3, EconomyManager.Instance.CurrentGold, "Scene 1");
 
         BackToMainMenu();
     }

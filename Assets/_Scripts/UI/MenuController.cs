@@ -22,11 +22,6 @@ public class MenuController : MonoBehaviour
             UIFade.Instance.FadeToClear();
     }
 
-    private void QuitGame()
-    {
-        Application.Quit();
-    }
-
     private void StartNewGame()
     {
         if (UIFade.Instance)
@@ -39,7 +34,7 @@ public class MenuController : MonoBehaviour
 
     private void SetNewData()
     {
-        GameManager.Instance.SaveSceneData(5, 3, 0, "Scene 1");
+        GameManager.Instance.SaveSceneData(5, 3, GameManager.Instance.previousSceneData.goldCoin, "Scene 1");
     }
 
     private void ContinueGame()
@@ -73,5 +68,11 @@ public class MenuController : MonoBehaviour
     private void ActiveGameObjects()
     {
         UIFade.Instance.transform.Find("Gameplay Info UI")?.gameObject.SetActive(true);
+    }
+
+    private void QuitGame()
+    {
+        GameManager.Instance.GetComponent<SaveLoadSystem>().SaveGame();
+        Application.Quit();
     }
 }
