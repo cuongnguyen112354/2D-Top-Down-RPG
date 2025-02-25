@@ -24,7 +24,7 @@
 ## Những chức năng đang có và cần update:
 
 - Hiện tại có 3 khu vực theo độ khó tăng dần, khu vực thứ 3 sẽ có Boss.
-- Game còn hạn chế về UI/UX, các màn chơi, các chức năng, các hệ thống,... dần dần sẽ được bổ sung thêm.
+- Game còn hạn chế về UI/UX, các màn chơi, chức năng, hệ thống trò chơi,... dần dần sẽ được bổ sung thêm.
 
 
 ## Cách chơi
@@ -44,3 +44,5 @@
     + Heart: tăng 1 Heart.
     + Stamina: tăng 1 Stamina.
     + Gold coin: tăng 1 Gold.
+
+- Nhấn "Esc" hoặc nút Pause góc phải trên màn hình để pause game.
