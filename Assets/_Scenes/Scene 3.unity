@@ -617,7 +617,7 @@ GameObject:
   - component: {fileID: 302566987}
   - component: {fileID: 302566989}
   - component: {fileID: 302566988}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cosmetic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3641,7 +3641,7 @@ GameObject:
   - component: {fileID: 672478392}
   - component: {fileID: 672478391}
   - component: {fileID: 672478390}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Lake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6858,7 +6858,7 @@ GameObject:
   - component: {fileID: 882050381}
   - component: {fileID: 882050383}
   - component: {fileID: 882050382}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42582,7 +42582,7 @@ GameObject:
   - component: {fileID: 1763094310}
   - component: {fileID: 1763094309}
   - component: {fileID: 1763094314}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Foreground
   m_TagString: Untagged
   m_Icon: {fileID: 0}

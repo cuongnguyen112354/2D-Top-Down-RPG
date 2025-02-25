@@ -72,12 +72,24 @@ public class GameManager : Singleton<GameManager>
 
     public void DetectVictory()
     {
-        if (EnemyCount > 0 || !FinalScene)
+        if (EnemyCount > 0) return;
+
+        if (!FinalScene)
+        {
+            OpenTheDoor();
             return;
-
+        }
+        
         SaveSceneData(5, 3, EconomyManager.Instance.CurrentGold, "Scene 1");
-
         BackToMainMenu();
+    }
+
+    private void OpenTheDoor()
+    {
+        AreaExit areaExit = FindObjectOfType<AreaExit>();
+
+        areaExit.transform.Find("Minimap Icon Close").gameObject.SetActive(false);
+        areaExit.transform.Find("Minimap Icon Open").gameObject.SetActive(true);
     }
 
     public void BackToMainMenu()
