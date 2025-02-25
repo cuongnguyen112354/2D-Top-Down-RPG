@@ -56651,22 +56651,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost
       objectReference: {fileID: 0}
-    - target: {fileID: 1536976244738934227, guid: 116aadca53c37324d9e303d5618de348, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6428891193190450978, guid: 116aadca53c37324d9e303d5618de348, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9158010233577634430, guid: 116aadca53c37324d9e303d5618de348, type: 3}
-      propertyPath: stagger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9158010233577634430, guid: 116aadca53c37324d9e303d5618de348, type: 3}
-      propertyPath: oscillate
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
