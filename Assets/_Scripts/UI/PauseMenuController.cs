@@ -42,7 +42,7 @@ public class PauseMenuController : MonoBehaviour
 
     private void PauseGame()
     {
-        Time.timeScale = 0;
+        Time.timeScale = 0.1f;
         pauseButton.gameObject.SetActive(false);
         blurImage.gameObject.SetActive(true);
         pauseMenu.SetActive(true);
