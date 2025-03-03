@@ -10,12 +10,14 @@ public class EnemyPathFinding : MonoBehaviour
     private Rigidbody2D rb;
     private KnockBack knockBack;
     private SpriteRenderer spriteRenderer;
+    private IconMinimapFlip iconFlip;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         knockBack = GetComponent<KnockBack>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        iconFlip = GetComponentInChildren<IconMinimapFlip>();
     }
 
     void FixedUpdate()
@@ -25,9 +27,15 @@ public class EnemyPathFinding : MonoBehaviour
         rb.MovePosition(rb.position + moveDir * (moveSpeed * Time.fixedDeltaTime));
 
         if (moveDir.x > 0)
+        {
             spriteRenderer.flipX = false;
+            iconFlip.flipX = false;
+        }
         else if (moveDir.x < 0)
+        {
             spriteRenderer.flipX = true;
+            iconFlip.flipX = true;
+        }
     }
 
     public void MoveTo(Vector2 position)

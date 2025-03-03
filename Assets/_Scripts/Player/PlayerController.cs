@@ -17,6 +17,7 @@ public class PlayerController : Singleton<PlayerController>
     private Vector2 movement;
     private float startingMoveSpeed;
     private Rigidbody2D rb;
+    private IconMinimapFlip iconFlip;
 
     private Animator animator;
     private SpriteRenderer spriteRenderer;
@@ -47,6 +48,8 @@ public class PlayerController : Singleton<PlayerController>
 
     private void Start()
     {
+        iconFlip = GetComponentInChildren<IconMinimapFlip>();
+
         playerControls.Combat.Dash.performed += _ => Dash();
         startingMoveSpeed = moveSpeed;
         ActiveInventory.Instance.EquipStartingWeapon();
@@ -95,11 +98,13 @@ public class PlayerController : Singleton<PlayerController>
         if (mousePos < playerScreenPoint)
         {
             spriteRenderer.flipX = true;
+            iconFlip.flipX = true;
             facingLeft = true;
         }
         else
         {
             spriteRenderer.flipX = false;
+            iconFlip.flipX = false;
             facingLeft = false;
         }
     }

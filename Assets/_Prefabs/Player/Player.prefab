@@ -617,6 +617,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1302443856557437770}
   - component: {fileID: 8870273615902543931}
+  - component: {fileID: 2381104132143353718}
   m_Layer: 6
   m_Name: Minimap icon
   m_TagString: Untagged
@@ -691,6 +692,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2381104132143353718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5744546608326468576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b88ca319f8123459e76529bb9ad8fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7733485967187641856
 GameObject:
   m_ObjectHideFlags: 0
@@ -759,7 +772,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
